@@ -8,6 +8,7 @@ import EntryFormContainer from './component/EntryFormContainer';
  * SHANE once user logs in
  * change state of app to rerender ui as a authuser on journal page
  * TODO : make it so user only needs email of username
+ * AXIOS INFO : https://github.com/axios/axios
  */
 
 class App extends Component {
