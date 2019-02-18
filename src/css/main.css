@@ -35,3 +35,8 @@ textarea
     margin-right:auto;
     margin-bottom: 4vh;
 }
+/*temp list style*/
+li
+{
+    color:white;
+}

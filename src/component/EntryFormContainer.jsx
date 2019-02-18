@@ -18,7 +18,7 @@ class EntryFormContainer extends Component {
     formChange(btnSelected)
     {
         let b = btnSelected.toLowerCase();
-        console.log(b);
+        // console.log(b);
         if(b == "login")
         {
             this.setState(
@@ -58,10 +58,10 @@ class EntryFormContainer extends Component {
         <h5 className="card-title">{this.state.form}</h5>
         <div className="tab-content" id="pills-tabContent">
             <div className={"tab-pane fade "  + ((this.state.form == this.state.buttons[0]) ? "show active" : "" )} id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <LoginForm changeAuth={this.props.changeAuth} setUser={this.props.setUser}/>
+                        <LoginForm setUser={this.props.setUser}/>
             </div>
             <div className={"tab-pane fade "  + ((this.state.form == this.state.buttons[1]) ? "show active" : "" )} id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <SignupForm changeAuth={this.props.changeAuth} setUser={this.props.setUser}/>
+                        <SignupForm setUser={this.props.setUser}/>
             </div>
             <div className={"tab-pane fade "  + ((this.state.form == this.state.buttons[2]) ? "show active" : "" )} id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <ForgotPasswordForm />

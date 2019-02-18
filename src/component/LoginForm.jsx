@@ -20,12 +20,12 @@ class LoginForm extends Component {
     {
         if( e.target.value.includes("@") && e.target.value.includes(".") )
         {
-            console.log('Set email');
+            // console.log('Set email');
             this.setState({email:e.target.value});  
         }    
         else 
         {
-            console.log('Set username');
+            // console.log('Set username');
             this.setUsername(e);
         }            
     }
@@ -40,15 +40,16 @@ class LoginForm extends Component {
     authUser(e)
     {
         //auth user using backend services in heroku
+        console.log('state in login')
         console.log(this.state);
         axios.get(`https://backend-services.herokuapp.com/journalRoot/login?email=${this.state.email}&username=${this.state.username}&password=${this.state.password}`)
         .then( (res) =>
         {
-            console.log('success');
+            console.log('login success');
             console.log(res);
             if(res.data == "True")
             {
-                this.props.changeAuth();
+                //this.props.changeAuth();
                 this.props.setUser(
                     {
                         email:this.state.email,
@@ -66,7 +67,7 @@ class LoginForm extends Component {
         })
         .then( () =>
         {
-            console.log('axios ajax finished');
+            // console.log('axios ajax finished');
         }); 
         e.preventDefault();
     }

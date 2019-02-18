@@ -5,6 +5,7 @@ import Navbar from './component/Navbar';
 import EntryFormContainer from './component/EntryFormContainer';
 import PersonalInfo from './component/PersonalInfo';
 import Journal from './component/Journal';
+import EntryViewContainer from './component/EntryViewerContainer';
 
 /**
  * INFO : to deploy to github pages run $ npm run deploy
@@ -41,8 +42,11 @@ class App extends Component {
   }
   setUser(User)
   {
+    console.log('setuser called. user :');
+    console.log(User);
     this.setState(
       {
+        userAuth:true,
         user:
         {
           email:User.email,
@@ -50,17 +54,21 @@ class App extends Component {
           password:User.password
         }
       });
+    console.log('setuser finished. user : , state :');
+    console.log(this.state.user);
+    console.log(this.state)
   }
   setPage(page)
   {
     this.setState({currentPage:page});
   }
   render() {
-    // console.log('app state');
-    // console.log(this.state);
+    console.log('App state');
+    console.log(this.state);
     let nav;
     let personalInfo;
     let journal;
+    let entryViewContainer;
     let formContainer;
     if (this.state.userAuth)
     {
@@ -72,7 +80,9 @@ class App extends Component {
       }
       else
       {
-        //put profile stuff here
+        console.log('App : user being sent to entryViewContainer');
+        console.log(this.state.user);
+        entryViewContainer = <EntryViewContainer user={this.state.user} />
       }
     }
     else
@@ -86,6 +96,7 @@ class App extends Component {
         {nav}
         {personalInfo}
         {journal}
+        {entryViewContainer}
         {formContainer}
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

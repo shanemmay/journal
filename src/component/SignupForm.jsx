@@ -39,7 +39,7 @@ class SignupForm extends Component {
             console.log(res);
             if( res.data.includes("saved") )
             {
-                this.props.changeAuth();
+                //this.props.changeAuth();
                 this.props.setUser(
                     {
                         email:this.state.email,
