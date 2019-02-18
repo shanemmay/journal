@@ -18,7 +18,16 @@ class LoginForm extends Component {
     }
     setEmail(e)
     {
-        this.setState({email:e.target.value});
+        if( e.target.value.includes("@") && e.target.value.includes(".") )
+        {
+            console.log('Set email');
+            this.setState({email:e.target.value});  
+        }    
+        else 
+        {
+            console.log('Set username');
+            this.setUsername(e);
+        }            
     }
     setUsername(e)
     {
@@ -31,12 +40,24 @@ class LoginForm extends Component {
     authUser(e)
     {
         //auth user using backend services in heroku
-        //console.log(this.state);
+        console.log(this.state);
         axios.get(`https://backend-services.herokuapp.com/journalRoot/login?email=${this.state.email}&username=${this.state.username}&password=${this.state.password}`)
         .then( (res) =>
         {
             console.log('success');
             console.log(res);
+            if(res.data == "True")
+            {
+                this.props.changeAuth();
+                this.props.setUser(
+                    {
+                        email:this.state.email,
+                        username:this.state.username,
+                        password:this.state.password
+                    }
+                );
+            }
+                
         })
         .catch( (err) =>
         {
@@ -59,20 +80,20 @@ class LoginForm extends Component {
         return (
             <div>              
                 <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" onKeyUp={this.setEmail} />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div className="form-group">
+                        {/* <label for="email_username">Email</label> */}
+                        <input type="text" className="form-control" id="email_username" aria-describedby="email or username" placeholder="Email or Username" onKeyUp={this.setEmail} />
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div class="form-group">
+                    {/* <div className="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Username" onKeyUp={this.setUsername}/>
+                        <input type="text" className="form-control" id="username" aria-describedby="username" placeholder="Username" onKeyUp={this.setUsername}/>
+                    </div> */}
+                    <div className="form-group">
+                        {/* <label for="exampleInputPassword1">Password</label> */}
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onKeyUp={this.setPassword}/>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" onKeyUp={this.setPassword}/>
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary" onClick={this.authUser}>Login</button>
+                    <button type="submit" className="btn btn-outline-primary" onClick={this.authUser}>Login</button>
                 </form>
                 <br></br>
             </div>

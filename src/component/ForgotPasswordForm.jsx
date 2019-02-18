@@ -59,16 +59,16 @@ class ForgotPasswordForm extends Component {
         return (
             <div>              
                 <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" onKeyUp={this.setEmail} />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div className="form-group">
+                        {/* <label for="exampleInputEmail1">Email</label> */}
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" onKeyUp={this.setEmail} />
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Username" onKeyUp={this.setUsername}/>
+                    <div className="form-group">
+                        {/* <label for="username">Username</label> */}
+                        <input type="text" className="form-control" id="username" aria-describedby="username" placeholder="Username" onKeyUp={this.setUsername}/>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary" onClick={this.authUser}>Submit</button>
+                    <button type="submit" className="btn btn-outline-primary" onClick={this.authUser}>Submit</button>
                 </form>
                 <br></br>
             </div>

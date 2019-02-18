@@ -7,6 +7,7 @@
     "jquery": "^3.3.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-notifications": "^1.4.3",
     "react-scripts": "2.1.5"
   },
   "scripts": {
@@ -23,5 +24,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
