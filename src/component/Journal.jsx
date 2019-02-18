@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
@@ -39,7 +38,7 @@ class Journal extends Component {
       if( this.state.entry.match(regex) != null)
       {
         console.log('show save success banner');
-        axios.get(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`)
+        axios.get(`https://backend-services.gitapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`)
         .then( (res) =>
         {
             console.log("success");

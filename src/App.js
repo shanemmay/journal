@@ -57,7 +57,7 @@ class App extends Component {
     let formContainer;
     if (this.state.userAuth)
     {
-      nav = <Navbar />;
+      nav = <Navbar changeAuth={this.changeAuth}/>;
       personalInfo = <PersonalInfo user={this.state.user}/>;
       journal = <Journal user={this.state.user}/>;
     }

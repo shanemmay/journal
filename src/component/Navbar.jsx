@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class Navbar extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = 
+    {
+      empty:""
+    };
+  }
   render() {
     return (
       <div>
@@ -16,7 +24,7 @@ class Navbar extends Component {
                 <a className="nav-link" href="#">Other Page <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Logout </a>
+                <a className="nav-link" href="#" onClick={this.props.changeAuth}>Logout </a>
               </li>
             </ul>
           </div>
