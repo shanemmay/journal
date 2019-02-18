@@ -7,6 +7,7 @@ import PersonalInfo from './component/PersonalInfo';
 import Journal from './component/Journal';
 
 /**
+ * INFO : to deploy to github pages run $ npm run deploy
  * SHANE once user logs in
  * change state of app to rerender ui as a authuser on journal page
  * TODO : make it so user only needs email of username
