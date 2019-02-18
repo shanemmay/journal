@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import "../css/main.css";
+import logo from '../logo.svg';
 
 /**
  * SHANE once user logs in
@@ -22,7 +23,8 @@ class PersonalInfo extends Component {
   render() {
       let profilePic = this.props.user.profilePic;
       if(profilePic == undefined)
-        profilePic = '/static/media/logo.5d5d9eef.svg';
+        profilePic = logo;
+    console.log("profile pic src");
     console.log(profilePic);
     return (
       <div >
