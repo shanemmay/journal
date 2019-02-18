@@ -71,7 +71,7 @@ class App extends Component {
         {nav}
         {personalInfo}
         {journal}
-        {formContainer }
+        {formContainer}
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
