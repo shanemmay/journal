@@ -24,7 +24,6 @@ class EntryFormContainer extends Component {
             this.setState(
                 {
                     "form":"login",
-                    "buttons":["signup","login","forgot?"]
                 });
         }
         else if (b == "signup")
@@ -32,7 +31,6 @@ class EntryFormContainer extends Component {
             this.setState(
                 {
                     "form":"signup",
-                    "buttons":["login","signup","forgot?"]
                 });
         }
         else if (b == "forgot?")
@@ -40,7 +38,6 @@ class EntryFormContainer extends Component {
             this.setState(
                 {
                     "form":"forgot?",
-                    "buttons":["login","forgot?","signup"]
                 });
         }
     }
