@@ -30,15 +30,16 @@ class Journal extends Component {
   }
   saveEntry(e)
   {
-    //   console.log('user in journal');
-    //   console.log(this.props.user);
+      // console.log('user in journal');
+      // console.log(this.props.user);
       let user = this.props.user;
       let regex = /[a-zA-Z]+/g;
-        console.log(this.state.entry.match(regex) == null);
+      // console.log('entry');
+      // console.log(this.state.entry);
       if( this.state.entry.match(regex) != null)
       {
-        console.log('show save success banner');
-        axios.get(`https://backend-services.gitapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`)
+        // console.log(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`);
+        axios.get(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`)
         .then( (res) =>
         {
             console.log("success");
