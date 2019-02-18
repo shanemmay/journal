@@ -8,6 +8,7 @@ import Journal from './component/Journal';
 
 /**
  * INFO : to deploy to github pages run $ npm run deploy
+ * INFO : notifications info https://www.npmjs.com/package/react-notifications
  * SHANE once user logs in
  * change state of app to rerender ui as a authuser on journal page
  * TODO : make it so user only needs email of username
@@ -28,10 +29,11 @@ class App extends Component {
         username:"",
         password:""
       },
-      currentPage:"auth"
+      currentPage:"auth" //journal , profile
     };
     this.changeAuth = this.changeAuth.bind(this);
     this.setUser = this.setUser.bind(this);
+    this.setPage = this.setPage.bind(this);
   }
   changeAuth()
   {
@@ -49,6 +51,10 @@ class App extends Component {
         }
       });
   }
+  setPage(page)
+  {
+    this.setState({currentPage:page});
+  }
   render() {
     // console.log('app state');
     // console.log(this.state);
@@ -58,12 +64,20 @@ class App extends Component {
     let formContainer;
     if (this.state.userAuth)
     {
-      nav = <Navbar changeAuth={this.changeAuth}/>;
+      nav = <Navbar changeAuth={this.changeAuth} setPage={this.setPage} currentPage={this.state.currentPage}/>;
       personalInfo = <PersonalInfo user={this.state.user}/>;
-      journal = <Journal user={this.state.user}/>;
+      if(this.state.currentPage == "journal")
+      {
+        journal = <Journal user={this.state.user}/>;
+      }
+      else
+      {
+        //put profile stuff here
+      }
     }
     else
     {
+      //this.setPage("auth");
       formContainer = <EntryFormContainer changeAuth={this.changeAuth} setUser={this.setUser}/>; 
     }
     return (

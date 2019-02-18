@@ -10,6 +10,22 @@ class Navbar extends Component {
     };
   }
   render() {
+    // console.log('current page');
+    // console.log(this.props.currentPage);
+    let otherPage;
+    switch(this.props.currentPage)
+    {
+      case "auth":
+        this.props.setPage("journal");
+      case "journal":
+        otherPage = "profile";
+        break;
+      case "profile":
+        //this.props.setPage("profile");
+        otherPage = "journal";
+        break;
+    }
+    //let otherPage = (this.props.currentPage == "journal") ? "profile" : "journal";
     return (
       <div>
       {/* TODO : make this menu show the link for the other page */}
@@ -21,7 +37,7 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse " id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <a className="nav-link" href="#"> (coming soon) <span className="sr-only">(current)</span></a>
+                <a className="nav-link" href="#" onClick={() => this.props.setPage(otherPage)}> (coming soon) <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#" onClick={this.props.changeAuth}>Logout </a>

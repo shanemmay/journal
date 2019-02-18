@@ -24,8 +24,8 @@ class PersonalInfo extends Component {
       let profilePic = this.props.user.profilePic;
       if(profilePic == undefined)
         profilePic = logo;
-    console.log("profile pic src");
-    console.log(profilePic);
+    // console.log("profile pic src");
+    // console.log(profilePic);
     return (
       <div >
 <div className="jumbotron jumbotron-fluid text-center">
