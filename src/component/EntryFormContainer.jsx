@@ -42,6 +42,7 @@ class EntryFormContainer extends Component {
         }
     }
     render() {
+        this.props.setUser();
         return (
             <div>
 

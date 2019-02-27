@@ -8,6 +8,7 @@ import Journal from './component/Journal';
 import EntryViewContainer from './component/EntryViewerContainer';
 
 /**
+ * FOR SWIPPING : https://react-swipeable-views.com/demos/demos/
  * INFO : to deploy to github pages run $ npm run deploy
  * INFO : notifications info https://www.npmjs.com/package/react-notifications
  * SHANE once user logs in
@@ -40,8 +41,13 @@ class App extends Component {
   {
     this.setState({userAuth: !this.state.userAuth});
   }
-  setUser(User)
+  setUser(User = null)
   {
+    if(User == null)
+    {
+      console.log('setuser reached');
+      return;
+    }
     console.log('setuser called. user :');
     console.log(User);
     this.setState(

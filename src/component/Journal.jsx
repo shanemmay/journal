@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import EntrySwiper from './EntrySwiper';
 
 /**
  * SHANE once user logs in
@@ -39,7 +40,7 @@ class Journal extends Component {
       if( this.state.entry.match(regex) != null)
       {
         // console.log(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`);
-        axios.get(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&password=${user.password}&entry=${this.state.entry}&timestamp=${new Date()}&longitude=${1}&latitude=${1}`)
+        axios.get(`https://backend-services.herokuapp.com/journalRoot/saveEntry?email=${user.email}&username=${user.username}&entry=${this.state.entry}&time=${new Date()}&longitude=${1}&latitude=${1}`)
         .then( (res) =>
         {
             console.log("success");
@@ -56,7 +57,7 @@ class Journal extends Component {
         .then( () =>
         {
             console.log('save entry should be finished');
-        })
+        });
       }
       else
       {
@@ -90,6 +91,11 @@ class Journal extends Component {
                 {/* <label id="journal_label" htmlFor="journal">Entry</label> */}
                 <textarea className="form-control" id="journal" rows="7" onKeyUp={this.setEntry} onChange={this.setEntry} value={this.state.entry}></textarea>
                 <button className="btn btn-outline-primary" onClick={this.saveEntry}>Save</button>
+            </div>
+            
+            <div>
+              <h4 >Read Entries</h4>
+              <EntrySwiper user={this.props.user} />
             </div>
         </form>
       </div>

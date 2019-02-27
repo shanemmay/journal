@@ -37,7 +37,7 @@ class SignupForm extends Component {
         {
             console.log('success');
             console.log(res);
-            if( res.data.includes("saved") )
+            if( res.data.includes("sucess") )
             {
                 //this.props.changeAuth();
                 this.props.setUser(

@@ -24,7 +24,7 @@ class EntryViewerContainer extends Component {
       console.log('getentries url');
     console.log(`https://backend-services.herokuapp.com/journalRoot/getEntries?email=${this.props.user.email}&username=${this.props.user.username}&password=${this.props.user.password}`);
     //axios.get(`https://backend-services.herokuapp.com/journalRoot/getEntries?email=${this.props.user.email}&username=${this.props.user.username}&password=${this.props.user.password}`)
-    axios.get('https://backend-services.herokuapp.com/journalRoot/getEntries?email=&username=shanemarvinmay&password=shanemarvinmay')
+    axios.get(`https://backend-services.herokuapp.com/journalRoot/getEntries?email=${this.props.user.email}&username=${this.props.user.username}`)
     .then( (res) =>
     {
         console.log('get entries success');

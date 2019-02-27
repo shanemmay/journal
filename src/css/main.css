@@ -35,8 +35,17 @@ textarea
     margin-right:auto;
     margin-bottom: 4vh;
 }
+.card
+{
+    color: #ffffffff;
+    background: transparent;
+}
 /*temp list style*/
 li
+{
+    color:white;
+}
+h4
 {
     color:white;
 }

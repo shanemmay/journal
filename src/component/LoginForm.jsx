@@ -41,13 +41,13 @@ class LoginForm extends Component {
     {
         //auth user using backend services in heroku
         console.log('state in login')
-        console.log(this.state);
+        console.log(`https://backend-services.herokuapp.com/journalRoot/login?email=${this.state.email}&username=${this.state.username}&password=${this.state.password}`);
         axios.get(`https://backend-services.herokuapp.com/journalRoot/login?email=${this.state.email}&username=${this.state.username}&password=${this.state.password}`)
         .then( (res) =>
         {
             console.log('login success');
             console.log(res);
-            if(res.data == "True")
+            if(res.data.results.length > 0)
             {
                 //this.props.changeAuth();
                 this.props.setUser(
@@ -67,7 +67,7 @@ class LoginForm extends Component {
         })
         .then( () =>
         {
-            // console.log('axios ajax finished');
+            console.log('axios length ajax finished');
         }); 
         e.preventDefault();
     }
